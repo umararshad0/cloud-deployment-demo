@@ -77,13 +77,13 @@ sudo systemctl status apache2
 
 ### 4. Deploy Website Files
 
-The initial deployment copied the website files into Apache's document root:
+After configuring the Virtual Host below, run the deployment script from the project directory. It copies the files next to the script into the dedicated document root, then reloads Apache. The script can also be invoked by its path from another directory:
 
 ```bash
-sudo cp index.html style.css /var/www/html/
+./deploy.sh
 ```
 
-The project was subsequently configured to use a dedicated Virtual Host and document root at `/var/www/cloud-deployment-demo/public`.
+The script creates `/var/www/cloud-deployment-demo/public` if it does not exist. It requires `sudo` access and an installed, configured Apache service.
 
 ### 5. Test the Website Locally
 
